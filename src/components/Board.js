@@ -5,15 +5,18 @@ import PropTypes from 'prop-types';
 
 
 const generateSquareComponents = (squares, onClickCallback) => {
-  let squareList = [];
-  for (const squareArray of squares) {
-    for (const square of squareArray) {
-      squareList.push(<Square value={square.value} id={square.id} />);
-    }
-  }
-  return squareList;
+  const [firstRow, secondRow, thirdRow] = squares;
+  const squareObjArray = [...firstRow, ...secondRow, ...thirdRow];
+  return squareObjArray.map(square => {
+    return <Square 
+      key={square.id} 
+      value={square.value} 
+      onClickCallback={onClickCallback} 
+      id={square.id} />
+  });
 }
 
+// parameter of Board function is our props
 const Board = ({ squares, onClickCallback }) => {
   const squareList = generateSquareComponents(squares, onClickCallback);
   console.log(squareList);
