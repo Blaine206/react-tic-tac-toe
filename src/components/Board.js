@@ -19,7 +19,7 @@ const generateSquareComponents = (squares, onClickCallback) => {
 // parameter of Board function is our props
 const Board = ({ squares, onClickCallback }) => {
   const squareList = generateSquareComponents(squares, onClickCallback);
-  console.log(squareList);
+  // console.log(squareList);
   return <div className="grid" >
     {squareList}
   </div>

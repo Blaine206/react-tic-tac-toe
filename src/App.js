@@ -3,8 +3,8 @@ import './App.css';
 
 import Board from './components/Board';
 
-const PLAYER_1 = 'X';
-const PLAYER_2 = 'O';
+const PLAYER_1 = 'x';
+const PLAYER_2 = 'o';
 
 const generateSquares = () => {
   const squares = [];
@@ -41,18 +41,18 @@ const App = () => {
     const newSquares = [];
 
     squares.forEach(row => {
-      const newRowSquares = [];
+      const newRow = [];
       row.forEach(square => {
-        if (square.id === clickedOnSquare.id) {
-          newRowSquares.push({
+        if (square.id === clickedOnSquare.id && square.value === '') {
+          newRow.push({
             value: currentPlayer,
             id: clickedOnSquare.id
           });
         } else {
-          newRowSquares.push(square);
+          newRow.push(square);
         }
       });
-      newSquares.push(newRowSquares);
+      newSquares.push(newRow);
     });
 
     setSquares(newSquares);
