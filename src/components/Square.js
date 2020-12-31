@@ -8,8 +8,20 @@ const Square = (props) => {
   //  Component to alert a parent 
   //  component when it's clicked on.
 
+  const onSquareClick = () => {
+    const updatedSquare = {
+      id : props.id,
+      value : props.value
+    };
+    props.onClickCallback(updatedSquare)
+
+    // if props.value is /is not empty string...
+    // do this in App!
+  }
+
   return <button
     className="square"
+    onClick={onSquareClick}
   >
     {props.value}
   </button>
